@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS  (BUILD_SPEC §3)
+   Map all tokens into the Tailwind v4 theme so utilities like
+   bg-cream, text-ink, text-violet-600, font-display, etc. work.
+   ============================================================ */
+@theme {
+  /* Surfaces & ink */
+  --color-cream: #fbf9ff;
+  --color-surface: #ffffff;
+  --color-ink: #211c35;
+  --color-ink-soft: #564f6b;
+  --color-ink-faint: #8b85a0;
+
+  /* Indigo / violet / lavender ramp */
+  --color-indigo-950: #1b1140;
+  --color-indigo-900: #2a1065;
+  --color-indigo-800: #3b0764;
+  --color-violet-700: #6d28d9;
+  --color-violet-600: #7c3aed; /* primary */
+  --color-violet-500: #8b5cf6;
+  --color-lavender-400: #a78bfa;
+  --color-lavender-300: #c4b5fd;
+  --color-lavender-100: #ede9fe;
+  --color-lavender-50: #f5f3ff;
+
+  /* Wellness sage */
+  --color-sage-700: #047857;
+  --color-sage-600: #0e9f6e;
+  --color-sage-500: #10b981;
+
+  /* Luxe champagne */
+  --color-champagne: #c9a86a;
+  --color-champagne-soft: #e7d8b8;
+
+  /* System */
+  --color-border: #ece7f7;
+  --color-ring: #7c3aed;
+
+  /* Fonts (wired to next/font CSS vars from layout.tsx) */
+  --font-display: var(--font-display), "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: var(--font-sans), "Raleway", ui-sans-serif, system-ui, sans-serif;
+
+  /* Radii */
+  --radius-card: 22px;
+
+  /* Soft shadow scale */
+  --shadow-soft-sm: 0 4px 16px -8px rgba(43, 16, 101, 0.18);
+  --shadow-soft-md: 0 14px 44px -16px rgba(43, 16, 101, 0.22);
+  --shadow-soft-lg: 0 30px 80px -24px rgba(43, 16, 101, 0.3);
+
+  /* Signature gradients (consumable as bg-image utilities if needed) */
+  --background-image-brand: linear-gradient(120deg, #3b0764 0%, #7c3aed 45%, #a78bfa 100%);
+  --background-image-cta-dark: linear-gradient(135deg, #1b1140, #3b0764 60%, #6d28d9);
+
+  /* Easing */
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ============================================================
+   ROOT CSS VARIABLES (raw, for use outside Tailwind utilities)
+   ============================================================ */
+:root {
+  --cream: #fbf9ff;
+  --surface: #ffffff;
+  --ink: #211c35;
+  --ink-soft: #564f6b;
+  --ink-faint: #8b85a0;
+
+  --indigo-950: #1b1140;
+  --indigo-900: #2a1065;
+  --indigo-800: #3b0764;
+  --violet-700: #6d28d9;
+  --violet-600: #7c3aed;
+  --violet-500: #8b5cf6;
+  --lavender-400: #a78bfa;
+  --lavender-300: #c4b5fd;
+  --lavender-100: #ede9fe;
+  --lavender-50: #f5f3ff;
+
+  --sage-700: #047857;
+  --sage-600: #0e9f6e;
+  --sage-500: #10b981;
+
+  --champagne: #c9a86a;
+  --champagne-soft: #e7d8b8;
+
+  --border: #ece7f7;
+  --ring: #7c3aed;
+
+  --grad-brand: linear-gradient(120deg, #3b0764 0%, #7c3aed 45%, #a78bfa 100%);
+  --grad-cta-dark: linear-gradient(135deg, #1b1140, #3b0764 60%, #6d28d9);
+
+  --shadow-sm: 0 4px 16px -8px rgba(43, 16, 101, 0.18);
+  --shadow-md: 0 14px 44px -16px rgba(43, 16, 101, 0.22);
+  --shadow-lg: 0 30px 80px -24px rgba(43, 16, 101, 0.3);
+
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+* {
+  border-color: var(--border);
+}
+
+html {
+  /* Lenis drives scrolling; disable native smooth-scroll to avoid conflict */
+  scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans), "Raleway", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), "Cormorant Garamond", ui-serif, Georgia, serif;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* Limit body measure for readability */
+p {
+  max-width: 68ch;
+}
+
+/* Focus visibility for all interactive elements */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Lenis recommended styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ============================================================
+   REUSABLE UTILITY CLASSES
+   ============================================================ */
+
+/* Glassmorphism — light (over cream / light sections) */
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 40px -12px rgba(43, 16, 101, 0.18);
+}
+
+/* Glassmorphism — dark (over indigo / dark sections) */
+.glass-dark {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.35);
+}
+
+/* Eyebrow label (luxe) */
+.eyebrow {
+  font-family: var(--font-sans), "Raleway", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--champagne);
+  line-height: 1.4;
+}
+
+.eyebrow-on-dark {
+  color: var(--lavender-300);
+}
+
+/* Brand gradient text */
+.text-gradient {
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Shimmering gradient text (hero headline) */
+.text-gradient-shimmer {
+  background: linear-gradient(
+    120deg,
+    #3b0764 0%,
+    #7c3aed 35%,
+    #c4b5fd 50%,
+    #7c3aed 65%,
+    #3b0764 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: text-shimmer 7s linear infinite;
+}
+
+@keyframes text-shimmer {
+  to {
+    background-position: 220% center;
+  }
+}
+
+/* On dark backgrounds, a lighter brand gradient for legibility */
+.text-gradient-light {
+  background: linear-gradient(120deg, #ede9fe 0%, #c4b5fd 45%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Champagne hairline divider */
+.champagne-hairline {
+  height: 1px;
+  width: 100%;
+  border: 0;
+  background: linear-gradient(90deg, transparent, #c9a86a55, transparent);
+}
+
+/* Brand gradient fill (buttons / bands) */
+.bg-brand {
+  background-image: var(--grad-brand);
+}
+
+.bg-cta-dark {
+  background-image: var(--grad-cta-dark);
+}
+
+/* Button sheen sweep used by gradient-button */
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s var(--ease-luxe);
+  pointer-events: none;
+}
+
+.btn-sheen:hover::after {
+  transform: translateX(120%);
+}
+
+/* Section container helper */
+.container-luxe {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-luxe {
+    padding-inline: 2rem;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION — neutralize loops + transforms
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .text-gradient-shimmer {
+    animation: none !important;
+    background-position: 0 center !important;
+  }
+
+  .btn-sheen::after {
+    display: none !important;
+  }
+}
