@@ -101,7 +101,11 @@
 
 /* ============================================================
    BASE STYLES
+   Wrapped in @layer base so Tailwind v4 utilities (text-white,
+   border-*, max-w-*, etc.) can override these element defaults.
+   Unlayered rules would otherwise beat all layered utilities.
    ============================================================ */
+@layer base {
 * {
   border-color: var(--border);
 }
@@ -163,6 +167,7 @@ html.lenis body {
 .lenis.lenis-stopped {
   overflow: hidden;
 }
+} /* end @layer base */
 
 /* ============================================================
    REUSABLE UTILITY CLASSES

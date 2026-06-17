@@ -70,12 +70,25 @@ export default function Navbar() {
         >
           <span
             aria-hidden="true"
-            className="bg-brand inline-flex h-8 w-8 items-center justify-center rounded-full font-display text-sm font-semibold text-white shadow-[0_6px_18px_-6px_rgba(124,58,237,0.7)]"
+            className="bg-brand inline-flex h-9 w-9 items-center justify-center rounded-full font-display text-base font-semibold text-white shadow-[0_6px_18px_-6px_rgba(124,58,237,0.7)]"
           >
             I
           </span>
-          <span className="font-display text-xl font-semibold leading-none tracking-[-0.01em] text-ink">
-            Indigo
+          <span className="flex flex-col leading-none">
+            <span
+              className={`font-display text-xl font-semibold leading-none tracking-[-0.01em] transition-colors duration-300 ${
+                scrolled ? "text-ink" : "text-white"
+              }`}
+            >
+              Indigo
+            </span>
+            <span
+              className={`mt-1 text-[0.6rem] font-semibold uppercase leading-none tracking-[0.22em] transition-colors duration-300 ${
+                scrolled ? "text-champagne" : "text-lavender-300"
+              }`}
+            >
+              Counseling &amp; Wellness
+            </span>
           </span>
         </Link>
 
@@ -88,8 +101,12 @@ export default function Navbar() {
                 aria-current={isActive(item.href) ? "page" : undefined}
                 className={`relative inline-flex min-h-[44px] items-center rounded-full px-4 text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 ${
                   isActive(item.href)
-                    ? "text-violet-700"
-                    : "text-ink-soft hover:text-ink"
+                    ? scrolled
+                      ? "text-violet-700"
+                      : "text-white"
+                    : scrolled
+                      ? "text-ink-soft hover:text-ink"
+                      : "text-white/75 hover:text-white"
                 }`}
               >
                 {item.label}
@@ -118,7 +135,9 @@ export default function Navbar() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"
-          className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full text-ink transition-colors hover:bg-violet-600/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 lg:hidden"
+          className={`inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-violet-600/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 lg:hidden ${
+            scrolled || open ? "text-ink" : "text-white"
+          }`}
         >
           {open ? <X size={24} strokeWidth={1.75} /> : <Menu size={24} strokeWidth={1.75} />}
         </button>
