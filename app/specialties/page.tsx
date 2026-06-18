@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import {
-  CloudSun,
+  Flower2,
+  Baby,
   HeartHandshake,
-  ShieldCheck,
-  HandHeart,
-  Sprout,
+  Brain,
+  Leaf,
   Compass,
   Sparkles,
   Phone,
@@ -20,7 +20,7 @@ import SectionHeading from "@/components/section-heading";
 export const metadata: Metadata = {
   title: "Specialties | Indigo Counseling & Wellness",
   description:
-    "Areas of focus at Indigo Counseling & Wellness in Mount Pleasant / Charleston, SC — anxiety, depression, bipolar and other mood disorders; trauma, abuse history and PTSD; relationships, separation and infertility; addiction and substance use; borderline personality and self-harm; and women's issues. Compassionate, strengths-based therapy with Lisa Larkins Morton, LPC.",
+    "Areas of focus at Indigo Counseling & Wellness in Mount Pleasant / Charleston, SC — women's mental health across the lifespan; reproductive mental health (pregnancy, postpartum, infertility, loss); relationship challenges; nervous system–informed therapy for stress, trauma, anxiety, ADHD and burnout; and support through perimenopause, menopause, grief and aging. With Lisa Larkins Morton, LPC.",
   alternates: { canonical: "/specialties" },
 };
 
@@ -28,46 +28,68 @@ export const metadata: Metadata = {
 
 const specialties = [
   {
-    title: "Mood Disorders",
-    icon: CloudSun,
+    title: "Women's Mental Health Across the Lifespan",
+    icon: Flower2,
     intro:
-      "When the weather inside shifts, we work to find steadier ground.",
-    items: ["Depression", "Anxiety", "Bipolar Disorder"],
-  },
-  {
-    title: "Relationship Issues",
-    icon: HeartHandshake,
-    intro:
-      "Reconnect, repair, and find your way through life's biggest transitions — together.",
+      "Specialized support for women from adolescence through later adulthood, as roles, relationships, and identities evolve.",
     items: [
-      "Communication",
-      "Conflict",
-      "Separation & Divorce",
-      "Infidelity",
-      "Infertility",
-      "Family Planning",
+      "Anxiety & depression",
+      "Self-esteem & identity development",
+      "Changing roles & relationships",
+      "Life transitions",
     ],
   },
   {
-    title: "Addiction & Substance Use",
-    icon: ShieldCheck,
+    title: "Reproductive Mental Health",
+    icon: Baby,
     intro:
-      "Compassionate, judgment-free support rooted in years in the addiction field.",
-    items: ["Substance Use/Abuse", "Alcohol Use/Abuse", "Dual Diagnosis"],
+      "Compassionate care through the tender — and often unspoken — passages of reproductive life.",
+    items: [
+      "Pregnancy & postpartum adjustment",
+      "Infertility",
+      "Pregnancy loss",
+      "Abortion experiences",
+      "Motherhood & parenting",
+    ],
   },
   {
-    title: "Personality & Self-Harm",
-    icon: HandHeart,
+    title: "Relationship Challenges",
+    icon: HeartHandshake,
     intro:
-      "A safe space to build coping skills, regulation, and self-compassion.",
-    items: ["Borderline Personality Disorder", "Self-Harming behaviors"],
+      "Reconnect, repair, and navigate life's most significant relational transitions.",
+    items: [
+      "Relationship concerns",
+      "Betrayal trauma & infidelity",
+      "Marriage",
+      "Separation & divorce",
+      "Caregiving stress & empty nest",
+    ],
   },
   {
-    title: "Trauma & PTSD",
-    icon: Sprout,
+    title: "Nervous System–Informed Therapy",
+    icon: Brain,
     intro:
-      "EMDR and Seeking Safety to gently process the past and grow forward.",
-    items: ["Trauma", "Abuse History", "PTSD"],
+      "Understanding both the psychological and physiological sides of distress, so therapy becomes experiential and change is lasting.",
+    items: [
+      "Stress & burnout",
+      "Trauma",
+      "Anxiety",
+      "ADHD",
+      "Regulation, mindfulness & brain-body awareness",
+    ],
+  },
+  {
+    title: "Life Transitions, Grief & Aging",
+    icon: Leaf,
+    intro:
+      "Steady, grounded support through the seasons of change that come with time.",
+    items: [
+      "Perimenopause & menopause",
+      "Caregiving",
+      "Grief & loss",
+      "Aging",
+      "End-of-life transitions",
+    ],
   },
 ] as const;
 
@@ -89,9 +111,10 @@ export default function SpecialtiesPage() {
             </h1>
           </Reveal>
           <Reveal delay={0.16}>
-            <p className="mx-auto mt-6 max-w-[58ch] text-lg leading-[1.7] text-lavender-100/85 md:text-xl">
-              Wherever you&rsquo;re starting from, there is a path forward. These
-              are the areas I most often walk through with clients.
+            <p className="mx-auto mt-6 max-w-[60ch] text-lg leading-[1.7] text-lavender-100/85 md:text-xl">
+              Specialized care for women across the lifespan, reproductive and
+              relational transitions, and nervous system&ndash;informed support
+              for stress, trauma, anxiety, and burnout.
             </p>
           </Reveal>
         </div>
@@ -197,13 +220,15 @@ export default function SpecialtiesPage() {
               </span>
               <p className="eyebrow mb-4">THE APPROACH</p>
               <h2 className="font-display text-[2rem] font-semibold leading-[1.1] tracking-[-0.01em] text-ink md:text-[2.5rem]">
-                A collaborative, whole-person path
+                More than insight alone
               </h2>
               <p className="mx-auto mt-5 max-w-[62ch] font-sans text-base leading-[1.7] text-ink-soft md:text-lg">
-                My work is collaborative and strengths-based, blending
-                evidence-based therapy with holistic, mind-body practices like
-                mindfulness. Wherever we begin, we move at a pace that feels safe
-                — building trust and self-efficacy so real change can take root.
+                I help you understand the connection between your thoughts,
+                emotions, body, and nervous system — so you can move beyond
+                simply coping and begin experiencing lasting change. My approach
+                combines traditional psychotherapy with practical, experiential
+                tools that support emotional regulation, resilience, and greater
+                self-awareness.
               </p>
               <div className="champagne-hairline mx-auto mt-8 max-w-xs" />
               <p className="mt-6 font-display text-xl italic text-ink-soft">
