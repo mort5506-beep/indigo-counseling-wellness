@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   HeartHandshake,
   Sparkles,
@@ -23,6 +24,7 @@ import Reveal, { RevealStagger, RevealItem } from "@/components/reveal";
 import GlassCard from "@/components/glass-card";
 import GradientButton from "@/components/gradient-button";
 import SectionHeading from "@/components/section-heading";
+import heroBg from "../assets/hero-serenity.jpg";
 
 export const metadata: Metadata = {
   title:
@@ -89,10 +91,34 @@ export default function HomePage() {
   return (
     <>
       {/* ============================================================
-          1 · HERO  (dark aurora)
+          1 · HERO  (serene stepping-stones photo background)
          ============================================================ */}
       <section className="relative flex min-h-dvh items-center overflow-hidden pt-36 pb-28 md:pt-48 md:pb-36">
-        <AuroraBackground variant="dark" />
+        {/* Background photo + indigo scrim for headline legibility */}
+        <Image
+          src={heroBg}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="-z-10 object-cover object-center"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(20,12,46,0.66) 0%, rgba(20,12,46,0.30) 36%, rgba(34,18,78,0.40) 60%, rgba(20,12,46,0.86) 100%)",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "radial-gradient(112% 78% at 50% 52%, rgba(20,12,46,0.46), transparent 72%)",
+          }}
+        />
 
         <div className="container-luxe relative z-10">
           <div className="mx-auto max-w-4xl text-center">
