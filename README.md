@@ -2,6 +2,20 @@
 
 A luxury website for **Indigo Counseling & Wellness** — Lisa Larkins Morton, LPC, Mount Pleasant / Charleston, SC. Rebuilt from the original site with a premium, calming aesthetic: indigo→violet→lavender gradients, glassmorphism, an animated aurora hero, and cinematic scroll animations.
 
+## 🌐 Live site
+
+**https://mort5506-beep.github.io/indigo-counseling-wellness/**
+
+Hosted on **GitHub Pages** (static export) from the `gh-pages` branch.
+
+### Redeploy after changes
+
+```bash
+npm run deploy   # rebuilds and pushes to gh-pages; live again in ~30–60s
+```
+
+> **Note:** GitHub Pages serves this at a `/indigo-counseling-wellness/` sub-path, so `next.config.mjs` sets a `basePath`. If you later move to **Vercel** (recommended for the real `indigocounselingandwellness.com` domain), remove the `basePath` line and the site serves from the root with a valid auto SSL certificate.
+
 ## Tech stack
 
 - **Next.js 15** (App Router) · **React 19** · **TypeScript**
