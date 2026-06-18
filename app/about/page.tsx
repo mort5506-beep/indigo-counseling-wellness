@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import lisaPortrait from "../../assets/lisa-larkins-morton.jpg";
 import {
-  Flower2,
-  Activity,
-  Sparkles,
-  ShieldCheck,
   Brain,
+  HeartHandshake,
+  ShieldCheck,
+  Leaf,
+  Users,
   Phone,
   ArrowRight,
   Quote,
@@ -22,41 +22,41 @@ import SectionHeading from "@/components/section-heading";
 export const metadata: Metadata = {
   title: "About Lisa Larkins Morton, LPC | Indigo Counseling & Wellness",
   description:
-    "Meet Lisa Larkins Morton, LPC — a psychotherapist in Charleston / Mount Pleasant, SC specializing in women's mental health across the lifespan, reproductive mental health, and nervous system–informed therapy. Integrative, trauma-informed care. Book a complimentary consultation.",
+    "Meet Lisa Larkins Morton, LPC — a licensed psychotherapist in Charleston, SC specializing in trauma and women's issues. Trained in EMDR, DBT, and Seeking Safety, with a collaborative, strengths-based, mind-body approach. Book a complimentary consultation.",
 };
 
 /* ---------- static content (BUILD_SPEC §6 ABOUT) ---------- */
 
 const credentials = [
   {
-    icon: Flower2,
-    label: "Women's Mental Health",
+    icon: Brain,
+    label: "EMDR",
     description:
-      "Specialized, lifespan care for women — from adolescence through later adulthood, including reproductive and relational transitions.",
+      "Eye Movement Desensitization & Reprocessing to gently resolve the lingering charge of traumatic memory.",
   },
   {
-    icon: Activity,
-    label: "Nervous System–Informed",
+    icon: HeartHandshake,
+    label: "DBT",
     description:
-      "Interventions that support regulation, mindfulness, and brain-body awareness — addressing the physiological side of stress, trauma, anxiety, ADHD, and burnout.",
-  },
-  {
-    icon: Sparkles,
-    label: "Integrative & Experiential",
-    description:
-      "Traditional psychotherapy combined with practical, experiential tools for emotional regulation, resilience, and self-awareness.",
+      "Dialectical Behavior Therapy — blending behavioral science with acceptance and mindfulness skills.",
   },
   {
     icon: ShieldCheck,
-    label: "Trauma-Informed",
+    label: "Seeking Safety (CBT for PTSD)",
     description:
-      "A safe, paced approach that helps the nervous system feel safe enough to process, adapt, and heal.",
+      "An evidence-based cognitive-behavioral approach to PTSD, trauma, and co-occurring substance use.",
   },
   {
-    icon: Brain,
-    label: "EMDR & DBT",
+    icon: Leaf,
+    label: "Mindfulness & holistic wellness",
     description:
-      "Evidence-based modalities — EMDR for trauma, and Dialectical Behavior Therapy for emotion regulation and mindfulness.",
+      "Mind-body practices that treat the whole person, centered on your overall wellness.",
+  },
+  {
+    icon: Users,
+    label: "Strengths-based & collaborative",
+    description:
+      "We build on your strengths so trust and self-efficacy grow through the therapeutic relationship.",
   },
 ];
 
@@ -85,8 +85,7 @@ export default function AboutPage() {
 
               <Reveal delay={0.2}>
                 <p className="mx-auto mt-6 max-w-xl text-base leading-[1.75] text-lavender-100/85 md:text-lg lg:mx-0">
-                  Licensed Professional Counselor · Women&rsquo;s Mental Health
-                  &amp; Nervous System&ndash;Informed Therapy · Charleston, SC
+                  Licensed Professional Counselor · Charleston, South Carolina
                 </p>
               </Reveal>
 
@@ -150,37 +149,33 @@ export default function AboutPage() {
             {/* Lead paragraph — emphasized */}
             <Reveal>
               <p className="font-display text-[1.45rem] font-medium leading-[1.5] tracking-[-0.005em] text-ink md:text-[1.75rem] md:leading-[1.5]">
-                I provide integrative psychotherapy that recognizes the powerful
-                connection between the mind, body, and nervous system. While
-                insight and self-understanding are important, lasting change
-                often requires helping the nervous system feel safe enough to
-                process, adapt, and heal.
+                Lisa Larkins Morton has spent several years in the addiction
+                field, focusing on the relationship between mental health and
+                substance use disorders. She is trained in Seeking Safety — a
+                cognitive-behavioral therapy for PTSD — and in EMDR, and she
+                draws on Dialectical Behavior Therapy (DBT), which blends
+                behavioral science with acceptance and mindfulness, throughout
+                her practice.
               </p>
             </Reveal>
 
             <Reveal delay={0.08}>
               <p className="mt-7 text-base leading-[1.85] text-ink-soft md:text-lg">
-                I specialize in women&rsquo;s mental health, supporting women from
-                adolescence through later adulthood as they navigate changing
-                identities, relationships, family roles, and life circumstances.
-                Areas of focus include pregnancy and postpartum adjustment,
-                infertility, pregnancy loss, abortion experiences, motherhood,
-                parenting, relationship concerns, betrayal and infidelity,
-                marriage, separation and divorce, caregiving, grief and loss,
-                perimenopause, menopause, aging, and end-of-life transitions.
+                Her areas of interest include depression, anxiety, bipolar
+                disorder, PTSD, and substance use, as well as couples and
+                relationships and women&rsquo;s specific concerns such as
+                reproductive and fertility issues.
               </p>
             </Reveal>
 
             <Reveal delay={0.08}>
               <p className="mt-6 text-base leading-[1.85] text-ink-soft md:text-lg">
-                Drawing from an integrative, trauma-informed, and nervous
-                system&ndash;informed approach, I help women better understand
-                themselves, strengthen emotional resilience, and navigate
-                life&rsquo;s challenges with greater confidence, clarity, and
-                self-compassion. In addition to traditional therapy, I may
-                incorporate experiential and nervous system regulation tools that
-                support emotional regulation, resilience, mindfulness, and
-                self-awareness.
+                Lisa&rsquo;s approach to counseling is both collaborative and
+                strengths-based, allowing each person to build trust and
+                self-efficacy through the therapeutic relationship. She is known
+                for a natural ability to put people at ease — creating space to
+                explore what&rsquo;s causing distress at a comfortable pace,
+                while still gently challenging and encouraging growth.
               </p>
             </Reveal>
 
@@ -195,7 +190,7 @@ export default function AboutPage() {
                   aria-hidden="true"
                 />
                 <blockquote className="text-center font-display text-2xl italic leading-[1.4] text-violet-700 md:text-[1.85rem]">
-                  &ldquo;Healing involves more than insight alone.&rdquo;
+                  &ldquo;I value presence, connection, and meaningful growth.&rdquo;
                 </blockquote>
                 <hr className="champagne-hairline mx-auto mt-8 max-w-xs" />
               </figure>
@@ -203,14 +198,17 @@ export default function AboutPage() {
 
             <Reveal delay={0.08}>
               <p className="text-base leading-[1.85] text-ink-soft md:text-lg">
-                I&rsquo;m based in Charleston, South Carolina, and my approach is
-                deeply relational and compassionate. Beyond the work itself, I
-                value presence, connection, and meaningful growth. As a
-                self-employed practitioner, I&rsquo;ve intentionally structured my
-                practice to prioritize family life — particularly being fully
-                present for my young son — and that lived commitment to balance
-                informs my work with clients, many of whom are seeking the same.
-                Outside of my practice, I&rsquo;m
+                I&rsquo;m a licensed psychotherapist based in Charleston, South
+                Carolina, specializing in trauma and women&rsquo;s issues. With a
+                deeply relational, compassionate approach, I help clients
+                navigate complex emotional experiences, build resilience, and
+                reconnect with their authentic selves. In both my personal and
+                professional life, I value presence, connection, and meaningful
+                growth. As a self-employed practitioner, I&rsquo;ve
+                intentionally structured my work to prioritize family life —
+                particularly being fully present for my young son — and that
+                lived commitment to balance informs my work with clients, many
+                of whom are seeking the same. Outside of my practice, I&rsquo;m
                 an avid reader and lifelong learner with a passion for interior
                 design, gardening, and the outdoors. Whether hiking in the
                 mountains, boating on the lake, or tending my rose bushes and

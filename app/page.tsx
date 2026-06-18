@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Flower2,
-  Activity,
-  Baby,
   HeartHandshake,
+  Sparkles,
+  Users,
   Brain,
-  Leaf,
+  ShieldCheck,
+  HandHeart,
+  Sprout,
   BadgeCheck,
+  Clock,
   MoonStar,
   Phone,
   ArrowRight,
@@ -26,59 +28,62 @@ import heroBg from "../assets/hero-serenity.jpg";
 
 export const metadata: Metadata = {
   title:
-    "Indigo Counseling & Wellness | Women's Mental Health & Nervous System–Informed Therapy",
+    "Indigo Counseling & Wellness | Compassionate Therapy in Mount Pleasant, SC",
   description:
-    "Lisa Larkins Morton, LPC — integrative, nervous system–informed psychotherapy for women across the lifespan in Mount Pleasant / Charleston, SC. Specialized support for reproductive mental health, relationships, anxiety, trauma, and burnout. Your first 15-minute consultation is complimentary.",
+    "An innovative, mind-body approach to therapy in Mount Pleasant / Charleston, SC, led by Lisa Larkins Morton, LPC. Compassionate, judgment-free counseling — EMDR & DBT trained, with evening & weekend hours. Your first 15-minute consultation is complimentary.",
 };
 
 /* ---------- static content (BUILD_SPEC §6 HOME) ---------- */
 
 const trustRow = [
-  { icon: Flower2, label: "Women's mental health" },
-  { icon: Activity, label: "Nervous system–informed" },
-  { icon: BadgeCheck, label: "EMDR & DBT trained" },
+  { icon: BadgeCheck, label: "Licensed Professional Counselor" },
+  { icon: Sparkles, label: "EMDR & DBT trained" },
+  { icon: Clock, label: "Evening & weekend hours" },
 ];
 
-const emphases = [
+const pillars = [
   {
-    icon: Flower2,
-    title: "Women-focused care",
-    blurb:
-      "Specialized support for women through every stage of life — from adolescence through later adulthood — navigating the changing identities, relationships, family roles, and life transitions that shape emotional health across the lifespan.",
+    icon: HeartHandshake,
+    title: "Compassion-first",
+    blurb: "A safe, judgment-free space where you set the pace.",
   },
   {
-    icon: Activity,
-    title: "Nervous system regulation",
-    blurb:
-      "Evidence-based therapy combined with interventions that support regulation, mindfulness, and brain-body awareness — addressing both the psychological and physiological sides of stress, trauma, anxiety, ADHD, and burnout.",
+    icon: Sparkles,
+    title: "Mind-body wellness",
+    blurb: "Holistic strategies that treat the whole person, not just a symptom.",
+  },
+  {
+    icon: Users,
+    title: "Collaborative & strengths-based",
+    blurb: "We build on your strengths so trust and self-efficacy grow together.",
   },
 ];
 
 const specialties = [
   {
-    icon: Flower2,
-    title: "Women's Mental Health",
-    items: "Anxiety · Depression · Self-esteem · Identity · Life transitions",
-  },
-  {
-    icon: Baby,
-    title: "Reproductive Mental Health",
-    items: "Pregnancy & postpartum · Infertility · Pregnancy loss · Motherhood",
+    icon: Brain,
+    title: "Mood Disorders",
+    items: "Depression · Anxiety · Bipolar Disorder",
   },
   {
     icon: HeartHandshake,
-    title: "Relationship Challenges",
-    items: "Betrayal & infidelity · Marriage · Separation & divorce · Caregiving",
+    title: "Relationship Issues",
+    items: "Communication · Conflict · Separation · Infidelity · Infertility",
   },
   {
-    icon: Brain,
-    title: "Nervous System–Informed",
-    items: "Stress · Trauma · Anxiety · ADHD · Burnout",
+    icon: ShieldCheck,
+    title: "Addiction & Substance Use",
+    items: "Substance Use · Alcohol Use · Dual Diagnosis",
   },
   {
-    icon: Leaf,
-    title: "Transitions, Grief & Aging",
-    items: "Perimenopause · Menopause · Grief & loss · Aging · End-of-life",
+    icon: HandHeart,
+    title: "Personality & Self-Harm",
+    items: "Borderline Personality Disorder · Self-Harming behaviors",
+  },
+  {
+    icon: Sprout,
+    title: "Trauma & PTSD",
+    items: "Trauma · Abuse History · PTSD",
   },
 ];
 
@@ -118,7 +123,7 @@ export default function HomePage() {
         <div className="container-luxe relative z-10">
           <div className="mx-auto max-w-4xl text-center">
             <Reveal as="p" className="eyebrow eyebrow-on-dark mb-6">
-              Women&rsquo;s Mental Health · Nervous System&ndash;Informed Therapy
+              Counseling &amp; Wellness · Mount Pleasant, SC
             </Reveal>
 
             <Reveal delay={0.1}>
@@ -131,10 +136,10 @@ export default function HomePage() {
 
             <Reveal delay={0.2}>
               <p className="mx-auto mt-7 max-w-2xl text-base leading-[1.75] text-lavender-100/85 md:text-lg">
-                Integrative, nervous system&ndash;informed psychotherapy for
-                women across the lifespan, in Mount Pleasant, SC. Together we
-                move beyond simply coping &mdash; toward lasting change, deeper
-                resilience, and a more authentic, fulfilling life.
+                An innovative, mind-body approach to healing. Together we&rsquo;ll
+                explore what&rsquo;s creating dissonance in your life — at a pace
+                that feels safe — guided by a licensed therapist who believes,
+                deeply, that it can get better.
               </p>
             </Reveal>
 
@@ -208,19 +213,19 @@ export default function HomePage() {
                 aria-hidden="true"
               />
               <p className="mx-auto max-w-[60ch] font-display text-[1.55rem] font-medium leading-[1.45] tracking-[-0.01em] text-ink md:text-[2rem] md:leading-[1.4]">
-                My approach is compassionate, nonjudgmental, and grounded in the
-                connection between your emotional well-being, your relationships,
-                and your nervous system. I strive to create a safe space where
-                you can explore your experiences, process difficult emotions, and
-                strengthen resilience.
+                As your therapist, you can trust that you will never be judged.
+                You&rsquo;ll be met with compassion and empathy in a safe,
+                comfortable space — free to explore the issues creating
+                dissonance in your life, at a pace that feels right for you.
               </p>
               <p className="mx-auto mt-7 max-w-[60ch] text-base leading-[1.75] text-ink-soft md:text-lg">
-                Healing involves more than insight alone. Together we move{" "}
+                And if you&rsquo;re struggling, hold on to this:{" "}
                 <span className="font-semibold text-violet-700">
-                  beyond simply coping
+                  it can get better.
                 </span>{" "}
-                — toward lasting change, deeper resilience, and a more authentic,
-                fulfilling life.
+                When you feel challenged or unhappy, you hold the power to make
+                the changes that lead to greater fulfillment and happiness. I am
+                here to help you.
               </p>
             </GlassCard>
           </Reveal>
@@ -234,15 +239,15 @@ export default function HomePage() {
         <div className="container-luxe">
           <Reveal>
             <SectionHeading
-              eyebrow="WHERE I FOCUS"
-              title="Two areas of focus"
-              subtitle="While I support a wide range of concerns, my work centers on two deeply connected areas — caring for women across the lifespan, and helping the nervous system feel safe enough to heal."
+              eyebrow="OUR APPROACH"
+              title="A mind-body perspective on wellness"
+              subtitle="At Indigo, we believe healing happens when mind and body move together. We bring unique, evidence-based strategies — and a willingness to think outside the box — to move you intentionally toward the life you want."
               align="center"
             />
           </Reveal>
 
-          <RevealStagger className="mx-auto mt-16 grid max-w-4xl gap-6 md:grid-cols-2">
-            {emphases.map(({ icon: Icon, title, blurb }) => (
+          <RevealStagger className="mt-16 grid gap-6 md:grid-cols-3">
+            {pillars.map(({ icon: Icon, title, blurb }) => (
               <RevealItem key={title}>
                 <GlassCard hover className="h-full p-8">
                   <span
@@ -281,14 +286,16 @@ export default function HomePage() {
               </div>
 
               <p className="mx-auto mt-8 max-w-[64ch] text-center text-base leading-[1.8] text-ink-soft md:text-lg">
-                I provide integrative psychotherapy that recognizes the powerful
-                connection between the mind, body, and nervous system. While
-                insight and self-understanding are important, lasting change
-                often requires helping the nervous system feel safe enough to
-                process, adapt, and heal. My goal is to help you not only
-                understand your experiences, but also develop the capacity to
-                respond to life&rsquo;s challenges with greater flexibility,
-                confidence, and well-being.
+                My counseling philosophy is a simple one: I fully believe in the
+                power and the process of therapy. I&rsquo;ve seen it work —
+                radically changing lives and restoring relationships — and
+                I&rsquo;m honored when people allow me into their world to offer
+                knowledge, understanding, and guidance. My work is collaborative
+                and strengths-based, and I find the most effective therapy blends
+                cognitive behavioral therapy with holistic practices like
+                mindfulness, all centered on your overall wellness. I offer
+                evening and weekend hours to fit real life. Take the first step —
+                you deserve it.
               </p>
 
               <hr className="champagne-hairline mx-auto my-8 max-w-xs" />
@@ -310,7 +317,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="SPECIALTIES"
               title="How I can help"
-              subtitle="Specialized support for women across the lifespan and nervous system–informed care. These are the areas I most often walk through with clients."
+              subtitle="Wherever you're starting from, there is a path forward. These are the areas I most often walk through with clients."
               align="center"
             />
           </Reveal>

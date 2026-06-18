@@ -1,8 +1,6 @@
 export const site = {
   name: "Indigo Counseling & Wellness",
   tagline: "an innovative approach to therapy",
-  specialization:
-    "Specializing in Women's Mental Health Across the Lifespan, Reproductive Mental Health, Relationship Challenges, and Nervous System–Informed Therapy.",
   therapist: "Lisa Larkins Morton, LPC",
   phone: "843.367.5452",
   phoneHref: "tel:+18433675452",
