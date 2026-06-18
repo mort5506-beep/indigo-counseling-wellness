@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   HeartHandshake,
   Sparkles,
@@ -298,7 +299,7 @@ export default function HomePage() {
           <RevealStagger className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {specialties.map(({ icon: Icon, title, items }) => (
               <RevealItem key={title} className="h-full">
-                <a
+                <Link
                   href="/specialties"
                   className="group block h-full rounded-[22px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
                 >
@@ -330,7 +331,7 @@ export default function HomePage() {
                       />
                     </span>
                   </GlassCard>
-                </a>
+                </Link>
               </RevealItem>
             ))}
 

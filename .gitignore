@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large source portrait drafts (the optimized one lives in assets/)
+/portrait-*.png

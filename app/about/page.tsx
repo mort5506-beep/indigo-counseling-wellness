@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import lisaPortrait from "../../assets/lisa-larkins-morton.jpg";
 import {
   Brain,
   HeartHandshake,
@@ -105,37 +107,31 @@ export default function AboutPage() {
               </Reveal>
             </div>
 
-            {/* Portrait placeholder column — elegant monogram in a glass frame.
-                Clearly a placeholder for a real photo the practice can swap in. */}
+            {/* Portrait of Lisa Larkins Morton in a glass frame. */}
             <Reveal delay={0.24} className="mx-auto w-full max-w-sm lg:mx-0 lg:ml-auto">
               <figure className="flex flex-col items-center">
-                <GlassCard
-                  tone="dark"
-                  className="w-full p-4"
-                  aria-label="Placeholder for a portrait of Lisa Larkins Morton, to be added by the practice."
-                >
-                  <div className="bg-brand relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-[16px]">
-                    {/* Soft inner glow for depth */}
+                <GlassCard tone="dark" className="w-full p-3">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-[16px]">
+                    <Image
+                      src={lisaPortrait}
+                      alt="Lisa Larkins Morton, Licensed Professional Counselor"
+                      fill
+                      sizes="(max-width: 1024px) 90vw, 420px"
+                      className="object-cover object-top"
+                      placeholder="blur"
+                      priority
+                    />
+                    {/* Soft brand wash along the bottom for depth & cohesion */}
                     <span
                       aria-hidden="true"
-                      className="absolute inset-0"
+                      className="pointer-events-none absolute inset-0"
                       style={{
                         background:
-                          "radial-gradient(120% 90% at 30% 20%, rgba(255,255,255,0.28), transparent 55%)",
+                          "linear-gradient(to top, rgba(27,17,64,0.38), transparent 40%)",
                       }}
                     />
-                    <span
-                      className="relative font-display text-[6rem] font-semibold leading-none tracking-[-0.02em] text-white/90 md:text-[7rem]"
-                      aria-hidden="true"
-                    >
-                      LM
-                    </span>
                   </div>
                 </GlassCard>
-                <figcaption className="mt-4 text-center text-xs leading-relaxed text-lavender-100/55">
-                  Portrait placeholder — a professional photo of Lisa can be
-                  added here.
-                </figcaption>
               </figure>
             </Reveal>
           </div>
