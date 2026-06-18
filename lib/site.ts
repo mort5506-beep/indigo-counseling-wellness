@@ -6,9 +6,24 @@ export const site = {
   phoneHref: "tel:+18433675452",
   email: "lisa@indigocounselingandwellness.com",
   emailHref: "mailto:lisa@indigocounselingandwellness.com",
-  address: "207 Simmons Street, Mount Pleasant, SC",
-  mapQuery: "207 Simmons Street, Mount Pleasant, SC",
+  address: "207 Simmons Street, Mount Pleasant, SC 29464",
+  mapQuery: "207 Simmons Street, Mount Pleasant, SC 29464",
   hours: "Evening & weekend hours available",
+  locationsTagline: "Two locations for your convenience across the Charleston area",
+  locations: [
+    {
+      label: "Mount Pleasant",
+      lines: ["207 Simmons Street", "Mount Pleasant, SC 29464"],
+      address: "207 Simmons Street, Mount Pleasant, SC 29464",
+      mapQuery: "207 Simmons Street, Mount Pleasant, SC 29464",
+    },
+    {
+      label: "Charleston",
+      lines: ["1 Carriage Lane, Building D, 2nd Floor", "Charleston, SC 29407"],
+      address: "1 Carriage Lane, Building D, 2nd Floor, Charleston, SC 29407",
+      mapQuery: "1 Carriage Lane, Charleston, SC 29407",
+    },
+  ],
   nav: [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },

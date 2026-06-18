@@ -11,18 +11,12 @@ import ContactForm from "@/components/contact-form";
 export const metadata: Metadata = {
   title: "Contact | Indigo Counseling & Wellness",
   description:
-    "Reach out to Indigo Counseling & Wellness in Mount Pleasant, SC. Call 843.367.5452 or visit 207 Simmons Street to book your complimentary 15-minute consultation with Lisa Larkins Morton, LPC. Evening & weekend hours available.",
+    "Reach out to Indigo Counseling & Wellness, with two locations across the Charleston area — Mount Pleasant and Charleston (West Ashley). Call 843.367.5452 to book your complimentary 15-minute consultation with Lisa Larkins Morton, LPC. Evening & weekend hours available.",
 };
 
 /* ---------- contact details (BUILD_SPEC §1 facts, EXACT) ---------- */
 
 const contactItems = [
-  {
-    icon: MapPin,
-    label: "Visit",
-    value: site.address,
-    href: undefined as string | undefined,
-  },
   {
     icon: Phone,
     label: "Call",
@@ -42,10 +36,6 @@ const contactItems = [
     href: undefined as string | undefined,
   },
 ];
-
-const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(
-  site.mapQuery,
-)}&output=embed`;
 
 export default function ContactPage() {
   return (
@@ -97,7 +87,44 @@ export default function ContactPage() {
                   Call, email, or send a note using the form. Whatever feels most
                   comfortable — there&rsquo;s no wrong way to begin.
                 </p>
+                <p className="mt-5 inline-flex items-start gap-2.5 text-base font-medium leading-[1.6] text-violet-700">
+                  <MapPin
+                    size={18}
+                    strokeWidth={1.75}
+                    className="mt-0.5 shrink-0"
+                    aria-hidden="true"
+                  />
+                  {site.locationsTagline}
+                </p>
               </Reveal>
+
+              {/* Location cards */}
+              <RevealStagger className="grid gap-4 sm:grid-cols-2">
+                {site.locations.map((loc) => (
+                  <RevealItem key={loc.label} className="h-full">
+                    <GlassCard className="flex h-full items-start gap-4 p-5">
+                      <span
+                        className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-lavender-100 text-violet-700"
+                        aria-hidden="true"
+                      >
+                        <MapPin size={20} strokeWidth={1.75} />
+                      </span>
+                      <span className="flex flex-col">
+                        <span className="text-base font-medium leading-[1.4] text-ink">
+                          {loc.label}
+                        </span>
+                        <span className="mt-1 text-sm leading-[1.6] text-ink-soft">
+                          {loc.lines.map((line) => (
+                            <span key={line} className="block">
+                              {line}
+                            </span>
+                          ))}
+                        </span>
+                      </span>
+                    </GlassCard>
+                  </RevealItem>
+                ))}
+              </RevealStagger>
 
               {/* Contact detail cards */}
               <RevealStagger className="grid gap-4 sm:grid-cols-2">
@@ -144,18 +171,27 @@ export default function ContactPage() {
                 })}
               </RevealStagger>
 
-              {/* Google Map embed */}
-              <Reveal delay={0.1}>
-                <GlassCard className="overflow-hidden p-2">
-                  <iframe
-                    src={mapSrc}
-                    title="Map to Indigo Counseling & Wellness"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="h-[320px] w-full rounded-[16px] border-0 md:h-[360px]"
-                  />
-                </GlassCard>
-              </Reveal>
+              {/* Google Map embeds — one per location */}
+              <RevealStagger className="grid gap-4 lg:grid-cols-2">
+                {site.locations.map((loc) => (
+                  <RevealItem key={loc.label}>
+                    <GlassCard className="overflow-hidden p-2">
+                      <p className="px-2 pt-1.5 pb-2.5 text-sm font-medium leading-[1.4] text-ink">
+                        {loc.label}
+                      </p>
+                      <iframe
+                        src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                          loc.mapQuery,
+                        )}&output=embed`}
+                        title={`Map to Indigo Counseling & Wellness — ${loc.label}`}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="h-[280px] w-full rounded-[16px] border-0 md:h-[320px]"
+                      />
+                    </GlassCard>
+                  </RevealItem>
+                ))}
+              </RevealStagger>
             </div>
 
             {/* RIGHT — contact form */}

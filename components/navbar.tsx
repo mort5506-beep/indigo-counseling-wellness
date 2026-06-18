@@ -1,11 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { site } from "@/lib/site";
 import GradientButton from "@/components/gradient-button";
+import logoMark from "../assets/logo-mark.png";
+import logoMarkWhite from "../assets/logo-mark-white.png";
 
 /**
  * Navbar — BUILD_SPEC §5 / §4.
@@ -68,12 +71,13 @@ export default function Navbar() {
           className="group inline-flex items-center gap-2.5 rounded-lg py-2 pr-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600"
           aria-label={`${site.name} — home`}
         >
-          <span
+          <Image
+            src={scrolled ? logoMark : logoMarkWhite}
+            alt=""
             aria-hidden="true"
-            className="bg-brand inline-flex h-9 w-9 items-center justify-center rounded-full font-display text-base font-semibold text-white shadow-[0_6px_18px_-6px_rgba(124,58,237,0.7)]"
-          >
-            I
-          </span>
+            priority
+            className="h-10 w-auto transition-opacity duration-300"
+          />
           <span className="flex flex-col leading-none">
             <span
               className={`font-display text-xl font-semibold leading-none tracking-[-0.01em] transition-colors duration-300 ${

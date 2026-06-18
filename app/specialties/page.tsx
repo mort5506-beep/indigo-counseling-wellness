@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import {
+  Flower2,
+  Activity,
   CloudSun,
-  HeartHandshake,
   ShieldCheck,
+  HeartHandshake,
+  LifeBuoy,
   HandHeart,
-  Sprout,
   Compass,
   Sparkles,
   Phone,
@@ -20,7 +22,7 @@ import SectionHeading from "@/components/section-heading";
 export const metadata: Metadata = {
   title: "Specialties | Indigo Counseling & Wellness",
   description:
-    "Areas of focus at Indigo Counseling & Wellness in Mount Pleasant / Charleston, SC — anxiety, depression, bipolar and other mood disorders; trauma, abuse history and PTSD; relationships, separation and infertility; addiction and substance use; borderline personality and self-harm; and women's issues. Compassionate, strengths-based therapy with Lisa Larkins Morton, LPC.",
+    "Areas of focus at Indigo Counseling & Wellness in Mount Pleasant / Charleston, SC — women's mental health, nervous system regulation, mood disorders, trauma (including complex PTSD), relationships, addiction, and borderline personality disorder. Compassionate, evidence-based therapy with Lisa Larkins Morton, LPC.",
   alternates: { canonical: "/specialties" },
 };
 
@@ -28,46 +30,73 @@ export const metadata: Metadata = {
 
 const specialties = [
   {
+    title: "Women's Health",
+    icon: Flower2,
+    featured: true,
+    intro:
+      "Specialized mental-health care for women through every stage of life.",
+    items: [
+      "Across the lifespan",
+      "Reproductive mental health",
+      "Pregnancy & postpartum",
+      "Perimenopause & menopause",
+    ],
+  },
+  {
+    title: "Nervous System Regulation",
+    icon: Activity,
+    featured: true,
+    intro:
+      "A nervous system–informed approach — because healing involves more than insight alone.",
+    items: [
+      "Regulation & resilience",
+      "Mindfulness",
+      "Brain-body awareness",
+      "Stress & burnout",
+    ],
+  },
+  {
     title: "Mood Disorders",
     icon: CloudSun,
-    intro:
-      "When the weather inside shifts, we work to find steadier ground.",
-    items: ["Depression", "Anxiety", "Bipolar Disorder"],
+    featured: false,
+    intro: "Finding steadier ground when the weather inside shifts.",
+    items: ["Depression", "Anxiety", "Bi-Polar Disorder"],
+  },
+  {
+    title: "Trauma",
+    icon: ShieldCheck,
+    featured: false,
+    intro: "Gently processing the past so it loosens its grip.",
+    items: ["PTSD", "Complex PTSD"],
   },
   {
     title: "Relationship Issues",
     icon: HeartHandshake,
-    intro:
-      "Reconnect, repair, and find your way through life's biggest transitions — together.",
+    featured: false,
+    intro: "Reconnect, repair, and navigate life's biggest transitions.",
     items: [
       "Communication",
       "Conflict",
-      "Separation & Divorce",
+      "Separation/Divorce",
       "Infidelity",
       "Infertility",
       "Family Planning",
     ],
   },
   {
-    title: "Addiction & Substance Use",
-    icon: ShieldCheck,
-    intro:
-      "Compassionate, judgment-free support rooted in years in the addiction field.",
+    title: "Addiction",
+    icon: LifeBuoy,
+    featured: false,
+    intro: "Compassionate, judgment-free support toward recovery.",
     items: ["Substance Use/Abuse", "Alcohol Use/Abuse", "Dual Diagnosis"],
   },
   {
-    title: "Personality & Self-Harm",
+    title: "Borderline Personality Disorder",
     icon: HandHeart,
+    featured: false,
     intro:
       "A safe space to build coping skills, regulation, and self-compassion.",
-    items: ["Borderline Personality Disorder", "Self-Harming behaviors"],
-  },
-  {
-    title: "Trauma & PTSD",
-    icon: Sprout,
-    intro:
-      "EMDR and Seeking Safety to gently process the past and grow forward.",
-    items: ["Trauma", "Abuse History", "PTSD"],
+    items: ["Skills & emotion regulation", "Self-compassion"],
   },
 ] as const;
 
@@ -90,8 +119,9 @@ export default function SpecialtiesPage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mx-auto mt-6 max-w-[58ch] text-lg leading-[1.7] text-lavender-100/85 md:text-xl">
-              Wherever you&rsquo;re starting from, there is a path forward. These
-              are the areas I most often walk through with clients.
+              Specialized in women&rsquo;s mental health and nervous system
+              regulation &mdash; with compassionate, evidence-based support
+              across a range of concerns.
             </p>
           </Reveal>
         </div>
@@ -105,7 +135,7 @@ export default function SpecialtiesPage() {
             <SectionHeading
               eyebrow="HOW I CAN HELP"
               title="The work we do together"
-              subtitle="Every person and every story is different. Below are the concerns I most often support — and if you don't see yours here, reach out anyway. We'll find the right path."
+              subtitle="Women's mental health and nervous system regulation are my core focus, alongside compassionate support across the concerns below. If you don't see yours here, reach out anyway — we'll find the right path."
             />
           </Reveal>
 
@@ -115,6 +145,14 @@ export default function SpecialtiesPage() {
               return (
                 <RevealItem key={spec.title} className="h-full">
                   <GlassCard hover className="flex h-full flex-col p-8">
+                    {spec.featured && (
+                      <span
+                        className="mb-4 inline-flex w-fit items-center rounded-full bg-champagne/10 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] ring-1 ring-champagne/40"
+                        style={{ color: "#7d6326" }}
+                      >
+                        Focus area
+                      </span>
+                    )}
                     <span
                       className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-lavender-100 to-lavender-300/60 text-violet-700 ring-1 ring-white/60"
                       aria-hidden="true"

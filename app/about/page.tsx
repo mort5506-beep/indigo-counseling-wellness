@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import lisaPortrait from "../../assets/lisa-larkins-morton.jpg";
 import {
+  Flower2,
+  Activity,
+  ShieldCheck,
   Brain,
   HeartHandshake,
-  ShieldCheck,
   Leaf,
-  Users,
   Phone,
   ArrowRight,
   Quote,
@@ -22,12 +23,30 @@ import SectionHeading from "@/components/section-heading";
 export const metadata: Metadata = {
   title: "About Lisa Larkins Morton, LPC | Indigo Counseling & Wellness",
   description:
-    "Meet Lisa Larkins Morton, LPC — a licensed psychotherapist in Charleston, SC specializing in trauma and women's issues. Trained in EMDR, DBT, and Seeking Safety, with a collaborative, strengths-based, mind-body approach. Book a complimentary consultation.",
+    "Meet Lisa Larkins Morton, LPC — a licensed psychotherapist and Certified Clinical Trauma Professional in Charleston, SC specializing in women's mental health across the lifespan and nervous system regulation. Trained in EMDR and DBT, with a collaborative, nervous system–informed, mind-body approach. Book a complimentary consultation.",
 };
 
 /* ---------- static content (BUILD_SPEC §6 ABOUT) ---------- */
 
 const credentials = [
+  {
+    icon: Flower2,
+    label: "Women's Health",
+    description:
+      "Specialized, lifespan care for women — pregnancy and postpartum, infertility and reproductive transitions, motherhood, and perimenopause through menopause.",
+  },
+  {
+    icon: Activity,
+    label: "Nervous System–Informed",
+    description:
+      "Regulation, mindfulness, and brain-body awareness — addressing the physiological side of stress, trauma, anxiety, and burnout.",
+  },
+  {
+    icon: ShieldCheck,
+    label: "Certified Clinical Trauma Professional (CCTP)",
+    description:
+      "Advanced certification in evidence-based assessment and treatment of trauma and complex trauma.",
+  },
   {
     icon: Brain,
     label: "EMDR",
@@ -41,22 +60,10 @@ const credentials = [
       "Dialectical Behavior Therapy — blending behavioral science with acceptance and mindfulness skills.",
   },
   {
-    icon: ShieldCheck,
-    label: "Seeking Safety (CBT for PTSD)",
-    description:
-      "An evidence-based cognitive-behavioral approach to PTSD, trauma, and co-occurring substance use.",
-  },
-  {
     icon: Leaf,
     label: "Mindfulness & holistic wellness",
     description:
       "Mind-body practices that treat the whole person, centered on your overall wellness.",
-  },
-  {
-    icon: Users,
-    label: "Strengths-based & collaborative",
-    description:
-      "We build on your strengths so trust and self-efficacy grow through the therapeutic relationship.",
   },
 ];
 
@@ -85,7 +92,8 @@ export default function AboutPage() {
 
               <Reveal delay={0.2}>
                 <p className="mx-auto mt-6 max-w-xl text-base leading-[1.75] text-lavender-100/85 md:text-lg lg:mx-0">
-                  Licensed Professional Counselor · Charleston, South Carolina
+                  Licensed Professional Counselor · Certified Clinical Trauma
+                  Professional · Charleston, SC
                 </p>
               </Reveal>
 
@@ -176,6 +184,18 @@ export default function AboutPage() {
                 for a natural ability to put people at ease — creating space to
                 explore what&rsquo;s causing distress at a comfortable pace,
                 while still gently challenging and encouraging growth.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.08}>
+              <p className="mt-6 text-base leading-[1.85] text-ink-soft md:text-lg">
+                Today, my practice centers on women&rsquo;s mental health across
+                the lifespan — from pregnancy, postpartum, and reproductive
+                transitions through perimenopause, menopause, and beyond — and on
+                nervous system regulation. Using a nervous system–informed
+                approach, I combine traditional therapy with experiential tools
+                that support regulation, mindfulness, and brain-body awareness,
+                because healing involves more than insight alone.
               </p>
             </Reveal>
 

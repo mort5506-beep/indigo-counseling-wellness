@@ -5,12 +5,13 @@ import {
   HeartHandshake,
   Sparkles,
   Users,
-  Brain,
   ShieldCheck,
   HandHeart,
-  Sprout,
   BadgeCheck,
-  Clock,
+  Flower2,
+  Activity,
+  CloudSun,
+  LifeBuoy,
   MoonStar,
   Phone,
   ArrowRight,
@@ -25,20 +26,22 @@ import GlassCard from "@/components/glass-card";
 import GradientButton from "@/components/gradient-button";
 import SectionHeading from "@/components/section-heading";
 import heroBg from "../assets/hero-serenity.jpg";
+import office1 from "../assets/office-1.jpg";
+import office2 from "../assets/office-2.jpg";
 
 export const metadata: Metadata = {
   title:
-    "Indigo Counseling & Wellness | Compassionate Therapy in Mount Pleasant, SC",
+    "Indigo Counseling & Wellness | Women's Mental Health & Nervous System Regulation in Charleston, SC",
   description:
-    "An innovative, mind-body approach to therapy in Mount Pleasant / Charleston, SC, led by Lisa Larkins Morton, LPC. Compassionate, judgment-free counseling — EMDR & DBT trained, with evening & weekend hours. Your first 15-minute consultation is complimentary.",
+    "An innovative, mind-body approach to therapy with specialized care in women's mental health and nervous system regulation, led by Lisa Larkins Morton, LPC. Two Charleston-area locations in Mount Pleasant and Charleston, SC. Compassionate, judgment-free counseling — EMDR, DBT & CCTP trained, with evening & weekend hours.",
 };
 
 /* ---------- static content (BUILD_SPEC §6 HOME) ---------- */
 
 const trustRow = [
-  { icon: BadgeCheck, label: "Licensed Professional Counselor" },
-  { icon: Sparkles, label: "EMDR & DBT trained" },
-  { icon: Clock, label: "Evening & weekend hours" },
+  { icon: Flower2, label: "Women's mental health" },
+  { icon: Activity, label: "Nervous system regulation" },
+  { icon: BadgeCheck, label: "EMDR · DBT · CCTP" },
 ];
 
 const pillars = [
@@ -61,9 +64,24 @@ const pillars = [
 
 const specialties = [
   {
-    icon: Brain,
+    icon: Flower2,
+    title: "Women's Health",
+    items: "Across the lifespan · Reproductive mental health · Motherhood",
+  },
+  {
+    icon: Activity,
+    title: "Nervous System Regulation",
+    items: "Regulation · Mindfulness · Brain-body awareness",
+  },
+  {
+    icon: CloudSun,
     title: "Mood Disorders",
-    items: "Depression · Anxiety · Bipolar Disorder",
+    items: "Depression · Anxiety · Bi-Polar Disorder",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Trauma",
+    items: "PTSD · Complex PTSD",
   },
   {
     icon: HeartHandshake,
@@ -71,19 +89,14 @@ const specialties = [
     items: "Communication · Conflict · Separation · Infidelity · Infertility",
   },
   {
-    icon: ShieldCheck,
-    title: "Addiction & Substance Use",
+    icon: LifeBuoy,
+    title: "Addiction",
     items: "Substance Use · Alcohol Use · Dual Diagnosis",
   },
   {
     icon: HandHeart,
-    title: "Personality & Self-Harm",
-    items: "Borderline Personality Disorder · Self-Harming behaviors",
-  },
-  {
-    icon: Sprout,
-    title: "Trauma & PTSD",
-    items: "Trauma · Abuse History · PTSD",
+    title: "Borderline Personality Disorder",
+    items: "Skills, regulation & self-compassion",
   },
 ];
 
@@ -136,10 +149,11 @@ export default function HomePage() {
 
             <Reveal delay={0.2}>
               <p className="mx-auto mt-7 max-w-2xl text-base leading-[1.75] text-lavender-100/85 md:text-lg">
-                An innovative, mind-body approach to healing. Together we&rsquo;ll
-                explore what&rsquo;s creating dissonance in your life — at a pace
-                that feels safe — guided by a licensed therapist who believes,
-                deeply, that it can get better.
+                An innovative, mind-body approach to healing, with specialized
+                care in women&rsquo;s mental health and nervous system
+                regulation. Together we&rsquo;ll move at a pace that feels safe —
+                toward lasting change, deeper resilience, and a more fulfilling
+                life.
               </p>
             </Reveal>
 
@@ -229,6 +243,56 @@ export default function HomePage() {
               </p>
             </GlassCard>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ============================================================
+          2b · SPECIALIZED FOCUS  (light / cream)
+         ============================================================ */}
+      <section className="bg-cream py-24 md:py-32">
+        <div className="container-luxe">
+          <Reveal>
+            <SectionHeading
+              eyebrow="SPECIALIZED FOCUS"
+              title="Where I focus"
+              subtitle="Two deeply connected areas at the heart of my practice."
+              align="center"
+            />
+          </Reveal>
+
+          <RevealStagger className="mx-auto mt-16 grid max-w-4xl gap-6 md:grid-cols-2">
+            {[
+              {
+                icon: Flower2,
+                title: "Women's Health",
+                blurb:
+                  "I support women through every stage of life — from adolescence through later adulthood — including pregnancy and postpartum, infertility and reproductive transitions, motherhood, relationships, and perimenopause through menopause and beyond.",
+              },
+              {
+                icon: Activity,
+                title: "Nervous System Regulation",
+                blurb:
+                  "Healing involves more than insight alone. Using a nervous system–informed approach, I combine traditional therapy with experiential tools that support regulation, mindfulness, and brain-body awareness — helping you move beyond simply coping toward lasting change.",
+              },
+            ].map(({ icon: Icon, title, blurb }) => (
+              <RevealItem key={title} className="h-full">
+                <GlassCard hover className="h-full p-8">
+                  <span
+                    className="bg-brand inline-flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-[0_12px_30px_-12px_rgba(124,58,237,0.6)]"
+                    aria-hidden="true"
+                  >
+                    <Icon size={26} strokeWidth={1.75} />
+                  </span>
+                  <h3 className="mt-6 font-display text-2xl font-semibold tracking-[-0.01em] text-ink">
+                    {title}
+                  </h3>
+                  <p className="mt-3 text-base leading-[1.7] text-ink-soft">
+                    {blurb}
+                  </p>
+                </GlassCard>
+              </RevealItem>
+            ))}
+          </RevealStagger>
         </div>
       </section>
 
@@ -412,6 +476,53 @@ export default function HomePage() {
               </div>
             </GlassCard>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ============================================================
+          6b · OUR SPACE  (light / surface)
+         ============================================================ */}
+      <section className="bg-surface py-24 md:py-32">
+        <div className="container-luxe">
+          <Reveal>
+            <SectionHeading
+              eyebrow="OUR SPACE"
+              title="A calm place to land"
+              subtitle={site.locationsTagline}
+              align="center"
+            />
+          </Reveal>
+
+          <RevealStagger className="mx-auto mt-16 grid max-w-5xl gap-6 md:grid-cols-2">
+            {[office1, office2].map((img, i) => (
+              <RevealItem key={i}>
+                <div className="glass overflow-hidden rounded-[22px] p-2">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[16px]">
+                    <Image
+                      src={img}
+                      alt={`Indigo Counseling & Wellness office interior ${i + 1}`}
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </RevealItem>
+            ))}
+          </RevealStagger>
+
+          <div className="mx-auto mt-10 grid max-w-5xl gap-6 sm:grid-cols-2">
+            {site.locations.map(({ label, lines }) => (
+              <div key={label} className="text-center sm:text-left">
+                <p className="font-display text-lg font-medium tracking-[-0.01em] text-ink">
+                  {label}
+                </p>
+                <p className="mt-1 text-base leading-[1.7] text-ink-soft">
+                  {lines.join(", ")}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

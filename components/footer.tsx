@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, Mail, Clock, LifeBuoy } from "lucide-react";
 import { site } from "@/lib/site";
+import logoMarkWhite from "../assets/logo-mark-white.png";
 
 /**
  * Footer — BUILD_SPEC §5.
@@ -22,12 +24,12 @@ export default function Footer() {
               className="inline-flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-300"
               aria-label={`${site.name} — home`}
             >
-              <span
+              <Image
+                src={logoMarkWhite}
+                alt=""
                 aria-hidden="true"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 font-display text-base font-semibold text-white"
-              >
-                I
-              </span>
+                className="h-11 w-auto"
+              />
               <span className="font-display text-2xl font-semibold tracking-[-0.01em] text-white">
                 {site.name}
               </span>
@@ -58,11 +60,20 @@ export default function Footer() {
           {/* Contact */}
           <div className="md:col-span-4">
             <h3 className="eyebrow eyebrow-on-dark mb-5">Get in touch</h3>
+            <p className="mb-4 text-sm text-lavender-100/70">
+              {site.locationsTagline}
+            </p>
             <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-3">
-                <MapPin size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-lavender-300" aria-hidden="true" />
-                <span className="text-lavender-100/85">{site.address}</span>
-              </li>
+              {site.locations.map((loc) => (
+                <li key={loc.label} className="flex items-start gap-3">
+                  <MapPin size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-lavender-300" aria-hidden="true" />
+                  <span className="text-lavender-100/85">
+                    <span className="font-medium text-white">{loc.label}</span>
+                    <br />
+                    {loc.lines.join(", ")}
+                  </span>
+                </li>
+              ))}
               <li className="flex items-start gap-3">
                 <Phone size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-lavender-300" aria-hidden="true" />
                 <a
