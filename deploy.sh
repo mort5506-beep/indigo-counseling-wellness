@@ -4,9 +4,9 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-echo "▸ Building static export…"
+echo "▸ Building static export… (GitHub Pages sub-path build)"
 rm -rf out .next
-npm run build
+GITHUB_PAGES=true npm run build
 
 echo "▸ Publishing out/ to gh-pages…"
 REMOTE="$(git remote get-url origin)"
